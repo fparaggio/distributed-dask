@@ -1,14 +1,14 @@
 ARG BASE_CONTAINER=condaforge/miniforge3:4.11.0-4
 FROM $BASE_CONTAINER
 
-ARG python=3.8
-ARG release
+ARG python
+ARG dask_version
 
 SHELL ["/bin/bash", "-c"]
 
 ENV PATH /opt/conda/bin:$PATH
-ENV PYTHON_VERSION=3.9
-ENV DASK_VERSION=2022.4.0
+ENV PYTHON_VERSION=$python
+ENV DASK_VERSION=$dask_version
 
 RUN conda update conda
 RUN conda install --yes -c conda-forge nomkl cytoolz cmake mamba python=${PYTHON_VERSION} \

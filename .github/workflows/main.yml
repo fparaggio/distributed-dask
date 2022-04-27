@@ -25,5 +25,5 @@ jobs:
         IMAGE_TAG: latest
       run: |
         cd base-image
-        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+        cat ../.env_file | xargs printf -- '--build-arg %s\n' | xargs docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
