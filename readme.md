@@ -13,7 +13,7 @@ Python version and dask version are setted in the file `.env_file`.
 
 use the script `./generate_lifecycle_oncreate.sh` to generate the configuration script to be associated to the notebook istance you are creating in sagemaker. The same script with some care/fixes can be used to create a local environment to work with the dask cluster (TBC the network configuration).
 
-In sagemaker in Notebook/Lifecycle configuration create a new configuration with the generated code. Then when a new notebook is created add it in the section "Additional configuration". Remember to configure also network with VPC / SUBNET and Security group (Default ones are ok). 
+In sagemaker in Notebook/Lifecycle configuration create a new "Create Notebook" configuration with the generated code. Then when a new notebook is created add it in the section "Additional configuration". Remember to configure also network with VPC / SUBNET and Security group (Default ones are ok). 
 
 The lifecycle configuration will add a kerner `conda_amygda_dask`, use it to work with the distributed Fargate cluster.
 
