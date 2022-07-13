@@ -30,8 +30,8 @@ RUN conda install --yes -c conda-forge nomkl cytoolz cmake mamba python=${PYTHON
     && rm -rf /opt/conda/pkgs
 
 COPY requirements.txt requirements.txt
-RUN apt update
-RUN apt install build-essential
+RUN apt update -y
+RUN apt install -y build-essential
 RUN pip3 install -r requirements.txt
 
 COPY prepare.sh /usr/bin/prepare.sh
